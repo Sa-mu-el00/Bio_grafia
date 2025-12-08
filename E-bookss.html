@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Exclusivo - Engenharia de Prompt</title>
+    
+    <style>
+        /* Paleta de Cores de Luxo */
+        :root {
+            --cor-fundo: #0c0c0c;     /* Preto Profundo */
+            --cor-texto: #ffffff;     /* Branco Puro */
+            --cor-ouro: #d4af37;      /* Ouro Clássico */
+            --cor-sombra: rgba(212, 175, 55, 0.4); /* Sombra Ouro */
+            --cor-destaque: #1a1a1a;  /* Cinza Escuro Suave */
+        }
+
+        body {
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            font-family: 'Times New Roman', Times, serif; /* Tipografia Clássica e Limpa */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 400px;
+            padding: 20px;
+            background-color: var(--cor-destaque);
+            border-radius: 10px;
+            box-shadow: 0 0 20px var(--cor-sombra); /* Sombra luxuosa */
+        }
+
+        h1 {
+            font-size: 1.8em;
+            color: var(--cor-ouro);
+            border-bottom: 2px solid var(--cor-ouro);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        p {
+            font-size: 1em;
+            margin-bottom: 30px;
+        }
+
+        /* Imagem da Capa (Elemento Visual de Luxo) */
+        .capa-ebook {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            border: 3px solid var(--cor-ouro); /* Borda Dourada */
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+            margin-bottom: 30px;
+        }
+
+        /* Botão de Download (O VETOR de Ação) */
+        .btn-download {
+            background-color: var(--cor-ouro);
+            color: var(--cor-fundo);
+            padding: 15px 30px;
+            text-decoration: none;
+            border: none;
+            border-radius: 50px; /* Borda arredondada (moderna) */
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            box-shadow: 0 4px 10px var(--cor-sombra);
+        }
+
+        .btn-download:hover {
+            background-color: #f7d264; /* Ouro mais claro no hover */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px var(--cor-sombra);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DOWNLOAD EXCLUSIVO</h1>
+        
+        <p>Confirme o download do seu guia:</p>
+
+        
+        <h2>ENGENHARIA DE PROMPT: O GUIA DEFINITIVO</h2>
+
+        <button class="btn-download" onclick="confirmarDownload()">
+            CONFIRMAR DOWNLOAD AGORA
+        </button>
+        
+        <p style="font-size: 0.8em; margin-top: 20px; color: #aaa;">
+            Arquivo PDF seguro. Download imediato após a confirmação.
+        </p>
+    </div>
+
+    <script>
+        function confirmarDownload() {
+            // Mensagem de confirmação visual antes de iniciar o download.
+            var confirmacao = confirm("Parabéns!Agora aproveite seu E-book de Engenharia de Prompt. Clique em 'OK' para iniciar o download.");
+            
+            if (confirmacao) {
+                // Ação de download: Redireciona para a URL de download direto.
+                window.location.href = "https://drive.google.com/file/d/1b4iArKalToJokVPxH7QFvLQMf2GxsSrU/view?usp=sharing";
+            }
+        }
+    </script>
+</body>
+</html>
