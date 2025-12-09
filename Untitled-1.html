@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+<title>Revisão & Pdf's | Análise e Tecnológia</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Revisões Sistemáticas  | Samuel T. Martins</title>
+    <style>
+        /* Estilos Globais: Preto e Branco, Contraste Afiado, Ouro como Destaque */
+        :root {
+            --cor-fundo: #FFFFFF; 
+            --cor-texto-principal: #1A1A1A; 
+            --cor-secundaria: #444444; 
+            --cor-acento: #B8860B; /* Ouro Envelhecido - Destaque Principal */
+            --cor-cta: #1A1A1A; /* Fundo do Botão de Compra */
+            --cor-cta-texto: #FFFFFF; /* Texto do Botão de Compra */
+            --font-principal: 'Arial Black', sans-serif; 
+            --font-secundaria: 'Helvetica', Arial, sans-serif; 
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-secundaria);
+            color: var(--cor-texto-principal);
+            background-color: var(--cor-fundo);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        a {
+            color: var(--cor-acento);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--cor-texto-principal);
+        }
+
+        /* HERO SECTION - Título do Produto */
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0 10%;
+            background-color: var(--cor-texto-principal);
+            color: var(--cor-fundo);
+            position: relative;
+        }
+        
+        .navbar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            z-index: 10;
+        }
+
+        .logo {
+            font-family: var(--font-principal);
+            font-size: 20px;
+            letter-spacing: 3px;
+        }
+
+        .nav-links a {
+            color: var(--cor-fundo);
+            margin-left: 25px;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .nav-links a:hover {
+            color: var(--cor-acento);
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: var(--cor-acento);
+            margin-bottom: 10px;
+        }
+
+        .headline {
+            font-family: var(--font-principal);
+            font-size: 80px;
+            line-height: 0.9;
+            margin: 0;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+        
+        .hero-description {
+            width: 50%;
+            margin-top: 20px;
+            font-size: 18px;
+            color: var(--cor-secundaria);
+        }
+
+        /* Botão Principal de Compra */
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            margin-top: 40px;
+            border: 2px solid var(--cor-acento);
+            background-color: var(--cor-cta);
+            color: var(--cor-cta-texto);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--cor-acento);
+            border-color: var(--cor-acento);
+            color: var(--cor-texto-principal);
+        }
+
+        /* SEÇÕES DE CONTEÚDO */
+        .content-section {
+            padding: 100px 10%;
+            background-color: var(--cor-fundo);
+        }
+        
+        .content-section.dark {
+            background-color: #F8F8F8;
+        }
+
+        .content-section h2 {
+            font-family: var(--font-principal);
+            font-size: 40px;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            color: var(--cor-acento);
+        }
+        
+        .reference-block {
+            border: 1px solid #E0E0E0;
+            padding: 20px;
+            margin-bottom: 25px;
+            background-color: var(--cor-fundo);
+        }
+
+        .reference-block h3 {
+            color: var(--cor-texto-principal);
+            font-size: 20px;
+            margin-top: 0;
+            border-bottom: 2px solid var(--cor-acento);
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .reference-block a {
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+        
+        /* NOVO BLOCO DE PREÇO */
+        .price-block {
+            text-align: center;
+            padding: 60px 0;
+            background-color: var(--cor-acento);
+            color: var(--cor-texto-principal);
+        }
+
+        .price-block h2 {
+            color: var(--cor-texto-principal);
+            font-size: 48px;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        
+        .price-block p {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        /* LISTA DE BENEFÍCIOS */
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 50px auto;
+        }
+        
+        .benefits-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #E0E0E0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .benefits-list li:before {
+            content: '✓';
+            color: var(--cor-acento);
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+
+        /* GRID/LISTAS */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .grid-item {
+            border-left: 5px solid var(--cor-acento);
+            padding-left: 20px;
+        }
+
+        .grid-item h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--cor-texto-principal);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* FOOTER */
+        .footer {
+            background-color: var(--cor-texto-principal);
+            color: var(--cor-fundo);
+            padding: 50px 10%;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .social-links {
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: var(--cor-fundo);
+            margin: 0 15px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .social-links a:hover {
+            color: var(--cor-acento);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero-section" id="home">
+        
+        <nav class="navbar">
+            <div class="logo">
+                SAMUEL MARTINS.
+            </div>
+            <div class="nav-links">
+                <a href="#proposta">Proposta</a>
+                <a href="#beneficios">Benefícios</a>
+                <a href="#Estrutura">Estrutura Geral Dos Arquivos e Criação</a>
+                <a href="#analise">Análise</a>
+                <a href="#conectividade">Assinar</a>
+            </div>
+        </nav>
+
+        <div class="hero-content">
+            <div class="hero-subtitle">Assinatura de Conteúdo Científico Premium</div>
+            <h1 class="headline">
+                Revisões<br>Sistemáticas<br>de LUXO
+            </h1>
+            <p class="hero-description">
+                Acesse o rigor da pesquisa de T.I. traduzido em PDFs com profundidade. Uma entrega semanal, estruturada com base na lógica axiomática (SCoT). Pare de consumir superficialidade.
+            </p>
+            <a href="#conectividade" class="cta-button">Assine Agora: R$ 29,90/Mês</a>
+        </div>
+        
+    </header>
+
+    <section class="content-section dark" id="proposta">
+        <h2>A Proposta de Rigor</h2>
+        <p style="font-size: 18px; color: var(--cor-secundaria);">O mercado está rachando em dois: quem programa e quem é programado. A IA não vai roubar seu emprego, mas quem sabe usá-la sim. Nossa trilha "Proficiência Digital" transforma você de iniciante em um líder capaz de construir soluções em Python, Data Science e Machine Learning. Esqueça os cursos superficiais. Aqui, você aprende a eficiência algorítmica ($O(n)$) exigida pelas gigantes de tecnologia. Por apenas R$ 29,90/mês, 
+            você está investindo em um futuro onde você dita as regras do jogo</p>
+        
+        <div style="margin-top: 40px; border-left: 5px solid var(--cor-acento); padding-left: 20px;">
+            <p style="font-style: italic; color: var(--cor-acento); font-size: 16px;">"Silentium est aureum – O silêncio da prudência. O seu sucesso exige o rigor que antecede a ação."</p>
+        </div>
+    </section>
+
+    <section class="content-section" id="beneficios">
+        <h2>Benefícios da Assinatura</h2>
+        <ul class="benefits-list">
+            <li>PDFs de luxo com design clean e foco na leitura eficiente.</li>
+            <li>Revisão Sistemática em T.I. com validade científica e rigor.</li>
+            <li>Conteúdo estruturado para economia de tempo e maximização da absorção.</li>
+            <li>Tradução de temas complexos para aplicação prática imediata.</li>
+        </ul>
+        
+        <div style="text-align: center;">
+            <a href="#conectividade" class="cta-button" style="background-color: var(--cor-acento); color: var(--cor-texto-principal); border-color: var(--cor-texto-principal);">
+                QUERO O RIGOR CIENTÍFICO POR R$ 29,90
+            </a>
+        </div>
+    </section>
+
+    <section class="content-section dark" id="autoridade">
+        <h2>Estrutura Geral Dos Arquivos e Criação</h2>
+        <p style="margin-bottom: 40px; font-size: 18px;">A qualidade do conteúdo é um reflexo do rigor do analista. Minha abordagem combina:</p>
+        <div class="grid-container">
+            <div class="grid-item">
+                <h3>Garanta sua vaga antes que o preço suba</h3>
+                <p>Analistas de Dados e Engenheiros de Machine Learning estão no topo das profissões mais bem pagas do mundo. Por que a maioria não chega lá? Porque cursos de alta qualidade custam milhares. Quebramos essa barreira. Por menos do que você gasta com um aplicativo de streaming, você tem acesso aos 3 cursos que te levam do zero em Python à construção de modelos de IA. É a sua chance de adquirir habilidades que valem R$ 10.000,00/mês por um investimento mensal ridículo.</p>
+            </div>
+            <div class="grid-item">
+                <h3>Quero o acesso imediato à Trilha de 45 PDFs.</h3>
+                <p>Cansado de tutoriais que não levam a lugar nenhum? Apresentamos a Trilha Proficiência Digital: uma metodologia sequencial, estruturada em 45 PDFs focados na prática e na eficiência.</p>
+            </div>
+            <div class="grid-item">
+                <h3>Visão de T.I.</h3>
+                <p>Seu feedback em cada e-mail nos capacita a sempre entregar o melhor para você - SEMPRE</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="content-section" id="analise">
+        <h2>Análise e Referências de Estudos</h2>
+        <p style="margin-bottom: 40px; font-size: 18px;">Minha metodologia é baseada na análise de fontes de referência que representam o mais alto rigor técnico e filosófico:</p>
+
+        <div class="grid-container">
+            <div class="reference-block">
+                <h3>Ciência da Computação Pura e Aplicada </h3>
+                <p>Análise de canais focados em fundamentos e algoritmos, não apenas tutoriais. O rigor que sustenta a pesquisa em T.I.</p>
+                <a href="https://www.gov.br/mcti/pt-br" target="_blank">Acessar Análise Técnica</a>
+            </div>
+            
+            <div class="reference-block">
+                <h3>Artigos Científicos</h3>
+                <p>Estudo de artigos científicos para rigor da ciência aplicado na tomada de decisões e performance.</p>
+                <a href="https://dialnet.unirioja.es/servlet/articulo?codigo=6983493" target="_blank">Acessar Estudo de Performance</a>
+            </div>
+            
+            <div class="reference-block">
+                <h3>comece sua jornada para a liderança em dados.</h3>
+                <p>Referência a papers sobre metodologia de Revisão Sistemática para garantir a validade científica de cada entrega em PDF.</p>
+                <a href="https://www.abntcatalogo.com.br/" target="_blank">Acessar Análise Conceitual</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="price-block" id="conectividade">
+        <h2>Se Você Valoriza a Ciência e o seu Tempo. 
+            Clique Imediatamente no Botão.</h2>
+        <p>Apenas R$ 29,90 por mês. Um investimento em rigor científico semanal.</p>
+        <a href="[HIPERLINK_PAGAMENTO]" class="cta-button" style="background-color: var(--cor-texto-principal); color: var(--cor-acento); border-color: var(--cor-texto-principal); font-size: 20px;">
+            ASSINAR E RECEBER A PRIMEIRA REVISÃO
+        </a>
+    </section>
+
+    <footer class="footer">
+        <p>A Disciplina é a Fundação. A Análise é a Vantagem.</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/samuel_telesmartins" target="_blank">Instagram</a> 
+            <a href="E-bookss.html" target="_blank">E-Book de Demonstração</a> 
+        </div>
+        <p style="margin-top: 20px; font-size: 12px; color: #777;">&copy; 2025 Samuel T. Martins. Rigor e Profundidade Conceitual.</p>
+    </footer>
+
+</body>
+</html>
