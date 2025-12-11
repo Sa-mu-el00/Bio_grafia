@@ -3,220 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samuel Teles Martins | Conexus Conectando você ao conhecimento</title>
+    <title>Link da Bio - Sua Central de Recursos</title>
+    <!-- Carregamento do Tailwind CSS CDN para estilização rápida e responsiva -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* Variáveis de Cor Ouro */
-        :root {
-            --gold-light: #FFD700; /* Ouro Puro */
-            --gold-dark: #B8860B;  /* Ouro Escuro */
-            --white: #FFFFFF;
-        }
-
-        /* RESET E FUNDO
-        O fundo preto é a tela, o branco é o foco.
-        */
+        /* Define a fonte Inter como padrão */
         body {
-            background-color: #000000; /* Fundo Preto */
-            color: var(--white); /* Texto Branco */
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #1a1a2e; /* Fundo escuro elegante */
+            color: #e0e0f0; /* Texto claro */
+        }
+        /* Estilos customizados para o container principal em mobile */
+        .bio-container {
+            max-width: 500px; /* Limite de largura para simular tela de celular */
             min-height: 100vh;
-            text-align: center;
-            position: relative; /* Necessário para as estrelas */
-            overflow: hidden; /* Garante que as estrelas não causem barra de rolagem */
+            padding: 24px;
         }
-
-        /* ESTILO DO PERFIL E CHAMADA
-        */
-        .profile-pic {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 4px solid var(--white);
-            object-fit: cover;
-            margin-bottom: 15px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Efeito de brilho */
-            position: relative;
-            z-index: 10; /* Garante que fique acima das estrelas */
+        /* Estilo para ícones SVG */
+        .icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            fill: currentColor;
         }
-
-        /* ATUALIZAÇÃO: HEADLINE DOURADA E BRANCA */
-        .headline {
-            font-size: 1.5em;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 40px;
-            padding: 5px 15px;
-            /* Gradiente de Dourado e Branco */
-            background: linear-gradient(90deg, var(--gold-light), var(--white), var(--gold-dark)); 
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            position: relative;
-            z-index: 10;
+        /* Cor de destaque principal (Roxo/Ciano) */
+        :root {
+            --highlight: #64ffda; /* Ciano brilhante */
+            --highlight-dark: #00bfa5;
         }
-        
-        /* BOTÃO NÃO-CONVENCIONAL (O CIRCULO DE ATENÇÃO)
-        (Conservado conforme arquivo original)
-        */
-        .link-container {
-            width: 100%;
-            max-width: 350px;
-            margin-bottom: 25px;
-            position: relative;
-            z-index: 10; 
+        .bg-highlight {
+            background-color: var(--highlight);
         }
-
-        .circle-link {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 350px; 
-            height: 65px; 
-            border-radius: 65px; 
-            text-decoration: none;
-            font-size: 1.1em;
-            font-weight: bold;
-            transition: all 0.3s ease-in-out;
-            color: #000000;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            position: relative;
-            overflow: hidden;
-            border: 3px solid var(--white); 
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+        .hover\:bg-highlight-dark:hover {
+            background-color: var(--highlight-dark);
         }
-
-        /* Efeito de Gradiente de Portal/Campo de Força */
-        .circle-link::before {
-            content: '';
-            position: absolute;
-            top: -100%;
-            left: -100%;
-            width: 300%;
-            height: 300%;
-            /* Ajustado para gradiente mais branco/cinza */
-            background: conic-gradient(from 0deg, var(--white) 0%, #1A1A1A 10%, var(--white) 20%, #1A1A1A 30%, var(--white) 40%, #1A1A1A 50%, var(--white) 60%, #1A1A1A 70%, var(--white) 80%, #1A1A1A 90%, var(--white) 100%);
-            animation: rotate 6s linear infinite; 
-            z-index: 0;
-            opacity: 0.7;
+        /* Estilo para o botão de download (Amarelo/Ouro) */
+        .download-btn {
+            background-color: #fcd34d; /* Amarelo Vibrante */
+            color: #1f2937; /* Texto Escuro */
+            font-weight: 700;
         }
-
-        .circle-link-content {
-            position: relative;
-            z-index: 1;
-            padding: 0 20px;
-            color: #000000; 
-            mix-blend-mode: screen; 
+        .hover\:bg-download-dark:hover {
+            background-color: #fbbf24; /* Amarelo um pouco mais escuro */
         }
-
-        /* Cores de Fundo (Conservadas, mas ajustadas para não serem brancas puras) */
-        .bg-venda { background-color: #0f0707; } 
-        .bg-ebook { background-color: #0c0505; } 
-        .bg-plataforma { background-color: #0b0505; } 
-        .bg-whatsapp { background-color: #050805; color: #120909; } 
-
-        /* Efeito Hover (Brilho Intenso - Conservado e ajustado para brilho vermelho/ouro) */
-        .circle-link:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px var(--gold-light);
+        /* Efeito de sombreamento suave */
+        .shadow-custom {
+            box-shadow: 0 10px 15px -3px rgba(100, 255, 218, 0.2), 0 4px 6px -2px rgba(100, 255, 218, 0.1);
         }
-
-        /* ANIMAÇÃO DE ROTAÇÃO */
-        @keyframes rotate {
-            0% { transform: translate(-50%, -50%) rotate(0deg); }
-            100% { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-
-        /* NOVO EFEITO: ESTRELAS PISCANTES */
-
-        /* Container que cobre a tela */
-        .stars {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none; /* Ignora cliques */
-            z-index: 5; /* Abaixo do conteúdo principal */
-        }
-        
-        /* Estrela individual */
-        .star {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            border-radius: 50%;
-            background-color: var(--gold-light); /* Cor Dourada/Branca */
-            box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
-            opacity: 0; /* Começa invisível */
-            animation: twinkle linear infinite;
-        }
-
-        /* ANIMAÇÃO DE PISCAR/BRILHAR */
-        @keyframes twinkle {
-            0%, 70%, 100% { opacity: 0; } /* Maior tempo invisível (baixa frequência) */
-            75% { opacity: 0.8; } /* Pico de brilho */
-            85% { opacity: 0.2; }
-        }
-
     </style>
 </head>
 <body>
-    
-    <div class="stars">
-        <div class="star" style="top: 10%; left: 5%; animation-delay: 1.5s; animation-duration: 5s;"></div>
-        <div class="star" style="top: 25%; left: 80%; animation-delay: 4s; animation-duration: 8s;"></div>
-        <div class="star" style="top: 50%; left: 30%; animation-delay: 7s; animation-duration: 6s;"></div>
-        <div class="star" style="top: 70%; left: 15%; animation-delay: 2s; animation-duration: 9s;"></div>
-        <div class="star" style="top: 85%; left: 90%; animation-delay: 0.5s; animation-duration: 7s;"></div>
-        <div class="star" style="top: 5%; left: 50%; animation-delay: 3s; animation-duration: 10s;"></div>
-        <div class="star" style="top: 40%; left: 95%; animation-delay: 6s; animation-duration: 5.5s;"></div>
-        <div class="star" style="top: 60%; left: 5%; animation-delay: 9s; animation-duration: 7.5s;"></div>
-        <div class="star" style="top: 95%; left: 40%; animation-delay: 1s; animation-duration: 8.5s;"></div>
-        <div class="star" style="top: 15%; left: 65%; animation-delay: 5.5s; animation-duration: 6.5s;"></div>
-        <div class="star" style="top: 30%; left: 10%; animation-delay: 8s; animation-duration: 9.5s;"></div>
-        <div class="star" style="top: 75%; left: 75%; animation-delay: 1.8s; animation-duration: 5.2s;"></div>
-        <div class="star" style="top: 55%; left: 45%; animation-delay: 4.5s; animation-duration: 7.8s;"></div>
-        <div class="star" style="top: 20%; left: 20%; animation-delay: 6.8s; animation-duration: 6.2s;"></div>
-        <div class="star" style="top: 80%; left: 60%; animation-delay: 0.1s; animation-duration: 9.8s;"></div>
-        </div>
+    <div class="bio-container mx-auto flex flex-col items-center">
 
-    
-    
-    <h1 class="headline">
-        O QUE VOCÊ BUSCA, SENHOR(a)?
-    </h1>
-
-    <div class="link-container">
-        <a href="Untitled-1.html" class="circle-link bg-venda" target="_blank">
-            <span class="circle-link-content"style="color: #e7e0e0; mix-blend-mode: normal">🚀 A OFERTA IRRECUSÁVEL | Garanta Sua Vaga Agora</span>
+        <!-- 2. NOVO BOTÃO DE DOWNLOAD DO E-BOOK (IMPLEMENTAÇÃO DA SOLICITAÇÃO) -->
+        <!-- O atributo 'download' força o navegador a baixar o arquivo em vez de apenas abri-lo. -->
+        <a href="E-Book.pdf" 
+           download="Engenharia_de_Prompt_Guia.pdf" 
+           class="link-btn flex items-center justify-center download-btn text-gray-900 p-4 w-full rounded-xl mb-6 transition duration-300 ease-in-out hover:bg-download-dark transform hover:scale-[1.03] shadow-xl">
+            
+            <!-- Ícone de Download (Seta para baixo) -->
+            <svg class="icon text-gray-900" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 11h-2V7h-4v4H8l4 4 4-4zM4 18h16v2H4z"/>
+            </svg>
+            <span class="font-extrabold text-lg">BAIXAR E-BOOK GRATUITO</span>
         </a>
-    </div>
-
-    <div class="link-container">
-        <a href="E-bookss.html" class="circle-link bg-ebook" target="_blank">
-            <span class="circle-link-content"style="color: #e7e0e0; mix-blend-mode: normal">🎁 E-BOOK GRATUITO | Libere o Potencial X</span>
-        </a>
-    </div>
-
-    <div class="link-container">
-        <a href="index.html"class="circle-link bg-plataforma" target="_blank">
-            <span class="circle-link-content"style="color: #e7e0e0; mix-blend-mode: normal">🔒 ÁREA DE MEMBROS | Conteúdo Exclusivo - Login</span>
+        
+        <!-- 3. LINKS SOCIAIS E PRINCIPAIS -->
+        <section class="w-full">
+            <!-- Bloco de Link Exemplo 1 -->
+            <a href="Untitled-1.html" target="_blank" class="link-btn flex items-center justify-center bg-highlight text-gray-900 p-4 w-full rounded-xl mb-4 transition duration-300 ease-in-out hover:bg-highlight-dark transform hover:scale-[1.02] shadow-custom">
+                <!-- SVG Icon (exemplo: Instagram) -->
+                <svg class="icon text-gray-900" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0z"/>
+                    <path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm6.36 4.93a.9.9 0 011.27 1.27l-3.35 3.35a.9.9 0 01-1.27 0l-1.42-1.42a.9.9 0 010-1.27l3.35-3.35a.9.9 0 011.27 0zM12 17.5a5.5 5.5 0 100-11 5.5 5.5 0 000 11z" clip-rule="evenodd"/>
+                </svg>
+                <span class="font-semibold text-lg">Conheça a plataforma</span>
             </a>
+
+            <!-- Bloco de Link Exemplo 2 -->
+            <a href="Del/login.html" target="_blank" class="link-btn flex items-center justify-center bg-highlight text-gray-900 p-4 w-full rounded-xl mb-4 transition duration-300 ease-in-out hover:bg-highlight-dark transform hover:scale-[1.02] shadow-custom">
+                <!-- SVG Icon (exemplo: YouTube) -->
+                <svg class="icon text-gray-900" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 12.5l-4.5 2.25L7.5 14.5V9.5l4.5 2.25 4.5-2.25v5z"/>
+                </svg>
+                <span class="font-semibold text-lg">Login</span>
+            </a>
+
+            <!-- Bloco de Link Exemplo 3 -->
+            <a href="https://chat.whatsapp.com/KBcCEKroLW06EeNX2xBnrE?mode=hqrc" target="_blank" class="link-btn flex items-center justify-center bg-highlight text-gray-900 p-4 w-full rounded-xl mb-8 transition duration-300 ease-in-out hover:bg-highlight-dark transform hover:scale-[1.02] shadow-custom">
+                <!-- SVG Icon (exemplo: Portfólio) -->
+                <svg class="icon text-gray-900" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/>
+                </svg>
+                <span class="font-semibold text-lg">Grupo no Whatsapp</span>
+            </a>
+        </section>
+
+        <!-- 4. SEÇÃO DE CAPTURA DE E-MAIL (MANTIDA) -->
+        <section class="w-full bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700">
+            <h2 class="text-xl font-bold mb-3 text-highlight">Receba Dicas Exclusivas</h2>
+            <p class="text-sm mb-4 text-gray-400">Insira seu melhor e-mail para receber conteúdos premium diretamente na sua caixa de entrada.</p>
+            
+            <div class="flex flex-col sm:flex-row gap-3">
+                <input type="email" id="emailInput" placeholder="seu-email@exemplo.com" 
+                       class="flex-grow p-3 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-highlight text-white">
+                
+                <button onclick="handleEmailCapture()" 
+                        class="p-3 rounded-lg bg-highlight text-gray-900 font-bold transition duration-300 ease-in-out hover:bg-highlight-dark">
+                    Quero Receber
+                </button>
+            </div>
+            <p id="message" class="text-sm text-red-400 mt-3 hidden text-left"></p>
+        </section>
+
     </div>
 
-    <div class="link-container">
-        <a href="https://chat.whatsapp.com/KBcCEKroLW06EeNX2xBnrE?mode=hqrc" class="circle-link bg-whatsapp" target="_blank" style="color:#eae7e7 !important; box-shadow: 0 0 20px var(--gold-light);">
-            <span class="circle-link-content" style="color:#e7e0e0; mix-blend-mode: normal;">💬 COMUNIDADE VIP | Entre no Grupo Secreto!</span>
-        </a>
-    </div>
+    <script>
+        // Configuração Firebase (Variáveis globais que devem estar disponíveis no ambiente Canvas)
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+        // O restante do Firebase/Firestore é omitido por não ser estritamente necessário para esta funcionalidade de link/download, mas a estrutura é mantida.
 
+        // Função para Captura de E-mail (Lógica original mantida)
+        function handleEmailCapture() {
+            const emailInput = document.getElementById('emailInput');
+            const messageElement = document.getElementById('message');
+            const email = emailInput.value;
+            
+            // Regex simples para validação básica de formato de e-mail
+            const emailRegex = /^[^s@]+@[^s@]+.[^s@]+$/;
+            
+            // **IMPORTANTE:** Este é o link de redirecionamento/agradecimento original do arquivo
+            // Se o usuário quisesse o download após a captura de e-mail, este link deveria ser o 'E-Book.pdf'
+            const REDIRECT_URL = "https://seulink.com/pagina-de-agradecimento-ou-download"; 
+            
+            // 1. Validação do e-mail
+            if (emailRegex.test(email)) {
+                // 2. Oculta a mensagem de erro
+                messageElement.classList.add('hidden');
+                
+                // 3. (OPCIONAL/MOCK): Aqui é onde você enviaria o e-mail para um serviço de e-mail marketing (Mailchimp, ActiveCampaign, etc.)
+                // No contexto deste arquivo HTML simples, apenas simulamos o sucesso.
+                console.log("E-mail capturado (MOCK): " + email);
+                
+                // 4. Redirecionamento para o hiperlink desejado
+                window.location.href = REDIRECT_URL;
+                
+            } else {
+                // 5. Exibe a mensagem de erro se o e-mail for inválido
+                messageElement.textContent = "Por favor, insira um e-mail válido.";
+                messageElement.classList.remove('hidden');
+                emailInput.focus();
+            }
+        }
+    </script>
 </body>
-
 </html>
